@@ -35,3 +35,12 @@
 .icon-square{
   border-radius: 50%;
 }
+
+#image_of_pebbles{
+  border-radius: 50%;
+  height: 100px;
+}
+
+.logo{
+  height:30px ;
+}
