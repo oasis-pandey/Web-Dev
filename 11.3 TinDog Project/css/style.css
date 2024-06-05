@@ -32,3 +32,6 @@
   justify-content: end;
   padding-right: 15%;
 }
+.icon-square{
+  border-radius: 50%;
+}
