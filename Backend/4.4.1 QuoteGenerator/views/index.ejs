@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<body>
+
+    <% if(locals.randomQuote){ %> 
+        <h1> <%= randomQuote %> </h1>
+    <%  }else{ %>
+        <h1>Hello, welcome to random Quote Generator.</h1>
+    <% } %> 
+        <form action="/next" method="post">
+        <button type="submit" name="action" value="nextQuote">Get next Quote</button>
+        <button type="submit" name="action" value="addToFavorites"> Add to Favorites</button>
+        <button type="submit" name="action" value="home">Return Home</button>
+        <button type="submit" name="action" value="viewFavorites">View Your Favorites</button>
+        </form>
+
+    
+</body>
+</html>
