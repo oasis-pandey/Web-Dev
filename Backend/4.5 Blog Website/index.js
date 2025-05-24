@@ -34,6 +34,13 @@ app.post("/post",(req,res)=>{
     res.redirect("/")
 })
 
+app.post("/edit",(req, res) => {
+    if(req.body.action == "edit"){
+
+    }
+    res.redirect("/")
+})
+
 
 
 app.listen(port, ()=> {

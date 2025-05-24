@@ -21,28 +21,28 @@
             <div class="lowerContainer">
                 <h1>YOUR BLOGS:</h1>
                 <div>
-                    <% Title.forEach(function(i){ %>
+                    <% for(let i=0; i<Title.length; i++){ %>
                         <div class="blogsContainer">
                             <div>
-                                <%= i %>
+                                <%= Title[i] %>
                             </div>
                             <div>
-                                <%= i %>
+                                <%= Content[i] %>
                             </div>
                             <form action="/edit" method="post">
-                                <input type="hidden" name="id" value="<%= ++i %>">
-                                <button name="action" value="edit" type="submit" number=""> edit</button>
+                                <input type="hidden" name="id" value="<%= i %>">
+                                <button name="action" value="edit" type="submit"> edit</button>
                             </form>
                             <form action="/view" method="get">
-                                <input type="hidden" name="id" value="<%= ++i %>">
-                                <button type="submit" name="action" value="view" number="">View</button>
+                                <input type="hidden" name="id" value="<%= i %>">
+                                <button type="submit" name="action" value="view">View</button>
                             </form>
                             <form action="/delete" method="post">
-                                <input type="hidden" name="id" value="<%= ++i %>">
-                                <button type="submit" name="action" value="delete" number="">Delete</button>
+                                <input type="hidden" name="id" value="<%= i %>">
+                                <button type="submit" name="action" value="delete">Delete</button>
                             </form>
                         </div>
-                        <% }) %>
+                        <% } %>
 
                 </div>
             </div>
