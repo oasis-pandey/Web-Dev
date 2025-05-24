@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="upperContainer">
+            <h1>Blogify</h1>
+            <h3>Your Go To Blog App ✌️</h3>
+            <form action="/create" method="post">
+                <button type="submit"> Create a Blog</button>
+            </form>
+        </div>
+        <% if(locals.Title.length !=0 && locals.Content.length !=0){ %>
+            <div class="lowerContainer">
+                <h1>YOUR BLOGS:</h1>
+                <div>
+                    <% for(let i=0; i< locals.Title.length; i++){ %>
+                        <div class="blogsContainer">
+                            <div>
+                                <%= locals.Title[i] %>
+                            </div>
+                            <div>
+                                <%= locals.Content[i] %>
+                            </div>
+                            <form action="/edit" method="post">
+                                <button name="action" value="edit" type="submit"> edit</button>
+                            </form>
+                            <form action="/view" method="get">
+                                <button type="submit" name="action" value="view">View</button>
+                            </form>
+                            <form action="/delete" method="post">
+                                <button type="submit" name="action" value="delete">Delete</button>
+                            </form>
+                        </div>
+                        <% } %>
+
+                </div>
+            </div>
+            <%}%>
+
+    </div>
+</body>
+
+</html>
