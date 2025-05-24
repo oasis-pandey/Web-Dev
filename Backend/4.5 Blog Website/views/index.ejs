@@ -21,25 +21,28 @@
             <div class="lowerContainer">
                 <h1>YOUR BLOGS:</h1>
                 <div>
-                    <% for(let i=0; i< locals.Title.length; i++){ %>
+                    <% Title.forEach(function(i){ %>
                         <div class="blogsContainer">
                             <div>
-                                <%= locals.Title[i] %>
+                                <%= i %>
                             </div>
                             <div>
-                                <%= locals.Content[i] %>
+                                <%= i %>
                             </div>
                             <form action="/edit" method="post">
-                                <button name="action" value="edit" type="submit"> edit</button>
+                                <input type="hidden" name="id" value="<%= ++i %>">
+                                <button name="action" value="edit" type="submit" number=""> edit</button>
                             </form>
                             <form action="/view" method="get">
-                                <button type="submit" name="action" value="view">View</button>
+                                <input type="hidden" name="id" value="<%= ++i %>">
+                                <button type="submit" name="action" value="view" number="">View</button>
                             </form>
                             <form action="/delete" method="post">
-                                <button type="submit" name="action" value="delete">Delete</button>
+                                <input type="hidden" name="id" value="<%= ++i %>">
+                                <button type="submit" name="action" value="delete" number="">Delete</button>
                             </form>
                         </div>
-                        <% } %>
+                        <% }) %>
 
                 </div>
             </div>

@@ -22,8 +22,10 @@ app.post("/create", (req,res) => {
 
 app.post("/delete",(req,res)=>{
     if(req.body.action == "delete"){
-        
+        blogsTitle.splice(req.body.id,1)
+        blogsContent.splice(req.body.id,1)
     }
+    res.redirect("/")
 })
 
 app.post("/post",(req,res)=>{
