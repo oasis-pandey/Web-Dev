@@ -1,9 +1,23 @@
 import express from "express"
 import bodyParser from "body-parser";
+import livereload from "livereload";
+import connectLiveReload from "connect-livereload"
 
 const app = express();
 const port = 3000;
 let isEditing = false;
+
+
+// Live Reloader to reload page automatically when CSS file is changed.
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch("public");
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+app.use(connectLiveReload());
+
 
 let blogsTitle = [];
 let blogsContent=[];
