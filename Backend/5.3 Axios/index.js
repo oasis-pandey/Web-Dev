@@ -41,7 +41,7 @@ app.post("/", async (req, res) => {
   }catch(error){
     console.error("Could not find the activity you are looking for.")
     res.render("index.ejs",{
-        error:error.message,
+        error: "Could not find the activity you are looking for",
     })
   }
   
