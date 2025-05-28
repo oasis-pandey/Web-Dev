@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
+    <%if(locals.edit){%>
+        <link rel="stylesheet" href="edit.css">
+        <%}else{%>
+            <link rel="stylesheet" href="create.css">
+            <%}%>
+
+
+
 </head>
+
 <body>
-    <%if(edit){%>
-    <div class="container">
-        <form action="/post" method="post">
-            <input type="text" name="title" placeholder="title" id="title" value="<%= Title  %> ">
-            <input type="text" name="content" placeholder="content" id="content" value=" <%= Content %>">
-            <button type="submit" name="action" value="post" id="postButton">Post</button>
-        </form> 
-    </div>
-    <%}else{%>
+    <%if(locals.edit){%>
         <div class="container">
-        <form action="/post" method="post">
-            <input type="text" name="title" placeholder="title" id="title">
-            <input type="text" name="content" placeholder="content" id="content">
-            <button type="submit" name="action" value="post" id="postButton">Post</button>
-        </form>
-    </div>
-    <%}%>
-    
+            <form action="/post" method="post">
+                <div class="input">
+                    <input type="text" name="title" placeholder="title" id="title" value="<%= Title  %> ">
+                    <input type="text" name="content" placeholder="content" id="content" value=" <%= Content %>">
+                    <button type="submit" name="action" value="post" id="postButton">Post</button>
+                </div>
+
+            </form>
+        </div>
+        <%}else{%>
+            <div class="container">
+                <form action="/post" method="post">
+                    <div class="input">
+                        <input type="text" name="title" placeholder="title" id="title">
+                        <input type="text" name="content" placeholder="content" id="content" >
+                        <button type="submit" name="action" value="post" id="postButton">Post</button>
+                    </div>
+
+                </form>
+            </div>
+            <%}%>
+
 </body>
+
 </html>

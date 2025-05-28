@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogify</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <h1>Blogify</h1>
             <h3>Your Go To Blog App ✌️</h3>
             <form action="/create" method="post">
-                <button type="submit"> Create a Blog</button>
+                <button  class="createBlog" type="submit"> Create a Blog</button>
             </form>
         </div>
         <% if(locals.Title.length !=0 && locals.Content.length !=0){ %>
@@ -23,31 +23,33 @@
                 <div>
                     <% for(let i=0; i<Title.length; i++){ %>
                         <div class="blogsContainer">
-                            <div>
+                            <div class="title">
                                 <%= Title[i] %>
                             </div>
-                            <div>
+                            <div class="content">
                                 <%= Content[i] %>
                             </div>
-                            <form action="/edit" method="post">
+                            <div class="lowerButtons">
+                                <form action="/edit" method="post">
                                 <input type="hidden" name="id" value="<%= i %>">
-                                <button name="action" value="edit" type="submit"> edit</button>
+                                <button class="editBtn Btn" name="action" value="edit" type="submit"> edit</button>
                             </form>
                             <form action="/view" method="post">
                                 <input type="hidden" name="id" value="<%= i %>">
-                                <button type="submit" name="action" value="view">View</button>
+                                <button class="viewBtn Btn" type="submit" name="action" value="view">View</button>
                             </form>
                             <form action="/delete" method="post">
                                 <input type="hidden" name="id" value="<%= i %>">
-                                <button type="submit" name="action" value="delete">Delete</button>
+                                <button class="deleteBtn Btn" type="submit" name="action" value="delete">Delete</button>
                             </form>
+                            </div>
+                            
                         </div>
                         <% } %>
 
                 </div>
             </div>
             <%}%>
-
     </div>
 </body>
 

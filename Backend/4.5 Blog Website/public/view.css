@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 80vw;
+    min-width: 50vw;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 3rem;
+    background-color: #FAF6E9;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFDF6;
+}
+
+.btn form button{
+    width: 6rem;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: #F4F8D3;
+}
