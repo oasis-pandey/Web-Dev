@@ -7,8 +7,10 @@
 <body>
   <h1>Random Joke</h1>
   <form method="post">
-    <%=joke%>
+    <%let text = response%>
+    <%=text%>
     <br>
-    <button id="nextJoke" formaction="/next" >Next Joke</button>
+    <input type="text" formaction="/text" name="type"  type="submit">
+    <button type="submit" formaction="/submit" name="type" value="submit">Submit</button>
   </form>
   
