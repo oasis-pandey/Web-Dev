@@ -7,7 +7,7 @@ const port = 3000;
 let prompt;
 
 app.use(bodyParser.urlencoded({extended:true}))
-const GEMINI_API_KEY = "AIzaSyC5oehxth5wlqlfcPj3taHkphxNiZljBew";
+const GEMINI_API_KEY = "XXX";
 
 app.get("/", async (req,res)=>{
     const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
