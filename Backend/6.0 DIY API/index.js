@@ -33,6 +33,17 @@ app.get("/filter",(req,res)=>{
 
 
 //4. POST a new joke
+app.post("/jokes",(req,res)=>{
+    const text = req.body.text;
+    const type = req.body.type;
+    const data = {
+        id : jokes.length + 1,
+        jokeText : text,
+        jokeType : type
+    }
+    jokes.push(data);
+    res.json(data);
+})
 
 //5. PUT a joke
 
