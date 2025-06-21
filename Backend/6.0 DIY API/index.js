@@ -75,8 +75,28 @@ app.patch("/jokes/:id",(req,res)=>{
 })
 
 //7. DELETE Specific joke
+app.delete("/jokes/:id", (req,res) => {
+    const id = parseInt(req.params.id);
+    const indexToRemove = jokes.findIndex((member) => member.id === id)
+    if(indexToRemove > -1){
+        jokes.splice(indexToRemove,1);
+        res.sendStatus(200);
+    }else{
+        res
+        .status(404)
+        .json({error : `Joke with id: ${id} not found. No Jokes were deleted.`})
+    }
+})
 
 //8. DELETE All jokes
+app.delete("/all" , (req,res) => {
+    if(req.query.key == masterKey){
+        jokes.splice(0,jokes.length)
+        res.json({message : "all jokes were deleted"})
+    }else{
+        res.json({message : "Unauthorized"})
+    }
+})
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
